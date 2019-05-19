@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Journal Entry</title>
+</head>
+<body>
+    <script>
+        // Make a html script that will create a journal with a short-term memory. Weird, I know.
+        // Prompt a user for any content. What they did yesterday, what their favourite colour is, whatever. Store the user input in an array.
+        // Print out all entries in the array.
+
+        // Loop back and prompt the user for the next journal entry.
+        // The journal can only contain a maximum of 5 entries, but can loop forever.
+
+        function journalEntry() {
+            let answer = [];
+            
+            while (true) {
+                entry = prompt("Name an animal");
+                
+                // if the array length is greater than or equal to 5, add an entry and delete the last one
+                if (answer.length >= 5) {
+                    answer.unshift(entry);
+                    answer.pop();
+                } else {
+                    // if array is shorter than 5, add entry
+                    answer.push(entry);
+                }
+                
+                console.log(answer);
+            }
+        
+        }
+
+    </script>
+
+</body>
+</html>

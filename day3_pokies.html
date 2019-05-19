@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pokies</title>
+</head>
+<body>
+    <script>
+        // Create a function that takes an array (of length 4) as input
+        // If the array contains the same 4 symbols, the user wins
+        // The amount they win depends on the length of the individual elements ($10 * the length)
+
+        const winnerWinner = (array) => {
+            let [f, s, t, fo] = array;
+        
+            // function AllTheSame(array) {
+            //     return array.every(function(element) {
+            //         return element === first;
+            //         console.log("hello");
+            //     });
+            // }
+            
+            if (f === s && f === t && f === fo) {
+                let arrLength = f.length;
+                console.log("Congratulations, you won $" + (arrLength * 10));
+            } else {
+                console.log("Unlucky, no win here");
+            }
+        
+        }
+
+        winnerWinner(["ab", "ab", "ab", "ab"]);
+        winnerWinner(["Ab", "2b", "ab", "ab"]);
+        winnerWinner(["rt2e", "rt2e", "rt2e", "rt2e"]);
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Atomic Blonde Number</title>
+</head>
+<body>
+    <script>
+        // a number is an atomic blonde number if the sum and product of its digits are equal.
+        // For example, 123 is an atomic blonde number, as the sum of its digits (1+2+3) is 6, which is equal to the product of its digits (1*2*3).
+        // Write a function (maybe even in ES6??) to check if a number is an atomic blonde number or not.
+
+        function atomicBlonde (num) {
+            let output = [];
+            let sNumber = num.toString();
+        
+            for (let i = 0; i < sNumber.length; i++) {
+                output.push(+sNumber.charAt(i));
+            }
+            
+            let sum = 0
+            let multi = 1;
+            for (let i = 0; i < output.length; i++) {
+                sum += output[i];
+                multi *= output[i];
+            }
+            
+            if (sum === multi) {
+                console.log("This is an atomic blonde number.");
+            } else {
+                console.log("This is not an atomic blonde number.");
+            }
+        }
+
+        atomicBlonde(123);
+        atomicBlonde(321);
+        atomicBlonde(343);
+    </script>
+
+</body>
+</html>

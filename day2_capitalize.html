@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Capitalize String</title>
+</head>
+<body>
+    <script>
+        // Given a string, use your favourite javascript loop to capitalise the first letter of each word, whilst making each other letter lowercase
+
+        function capitalizeString(words) {
+            let capString = words.toLowerCase().split(" ");
+            let newString = [];
+            let i = 0;
+
+            for (i = 0; i < capString.length; i++) {
+                text = capString[i].charAt(0)
+                    .toUpperCase() + capString[i].slice(1,capString.length);
+                newString.push(text);
+            }
+
+            console.log(newString.join(" "));
+        }
+        
+        capitalizeString("foo bar loo zoo moo");
+        capitalizeString("hey there");
+
+    </script>
+
+</body>
+</html>

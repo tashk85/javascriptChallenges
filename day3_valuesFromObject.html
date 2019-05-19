@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Values from Object</title>
+</head>
+<body>
+    <script>
+        // Return the values from all an objects properties using two different loops
+
+        const values = (input) => {
+            for(let key in input) {
+                console.log(input[key]);
+            }
+        }
+
+        values({name: "G-money", age: "Good question", hobbies: "everything"});
+
+    </script>
+
+</body>
+</html>
