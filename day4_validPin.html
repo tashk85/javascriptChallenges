@@ -12,7 +12,7 @@
 
         const validPin = (pin) => {
 
-            let pinNum = pin.match(/^(\d{4,6})$/);
+            let pinNum = pin.match(/^([0-9]{4}|[0-9]{6})$/);
 
             if (pinNum !== null) {
                 console.log(true);
