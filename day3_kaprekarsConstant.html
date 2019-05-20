@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kaprekar's Constant</title>
+</head>
+<body>
+    <script>
+        let difference = "";
+
+        function kaprekarConstant(number) {
+            // convert number into an array for sorting
+            let numArray = (""+number).split("");
+        
+            // sort the array into descending order
+            let descArray = numArray.sort(function(a,b) {
+                return b - a;
+            });
+        
+            // sort the array into ascending order
+            let ascArray = numArray.slice().sort(function(a,b) {
+                return a - b;
+            });
+
+            // join each array to form an integer
+            let smallerNum = parseInt(ascArray.join(""));
+            let largerNum = parseInt(descArray.join(""));
+            
+            // find difference by subtracting
+            difference = largerNum - smallerNum;
+
+            console.log(`${largerNum} - ${smallerNum} = ${difference}`);
+            
+        }
+
+        kaprekarConstant(8082);
+
+        let counter = 1;
+
+        while (difference !== 6174) {
+            kaprekarConstant(difference);
+            counter ++;
+        }
+
+        console.log(`It took ${counter} iterations to reach 6174`);
+        
+    </script>
+</body>
+</html>
