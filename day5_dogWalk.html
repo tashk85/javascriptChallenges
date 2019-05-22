@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dog Walk</title>
+</head>
+<body>
+    <script>
+        //Create a Dog class. Each dog should have a name and a location.
+        //Add a speak method that logs "Woof! my name is {name}"
+        //Add a walk method that accepts two arguments: location (string) and distance (integer)
+        //Add a display_walks method that console.logs all of the dog's walks
+        //Add a total_distance method that returns the total distance of all the walks
+        //Research: what's the difference between console.log and return? Make sure you have a solid understanding
+
+        class Dog {
+            constructor(name, location) {
+                this.name = name;
+                this.location = location;
+                this.walks = 0;
+                this.distance = 0;
+                this.walkLocation = [];
+            }
+
+            speak() {
+                console.log(`Woof! My name is ${this.name}`);
+            }
+
+            walk(walkLocation, distance) {
+                this.walks += 1;
+                this.walkLocation.push(walkLocation);
+                this.distance += distance;
+            }
+
+            displayWalks() {
+                let allLocations;
+
+                switch(this.walkLocation.length) {
+                    case 0:
+                        allLocations = "nowhere";
+                        break;
+                    case 1:
+                        allLocations = this.walkLocation;
+                        break;
+                    case 2:
+                        allLocations = `${this.walkLocation[0]} and ${this.walkLocation[1]}`;
+                        break;
+                    case 3:
+                        allLocations = `${this.walkLocation[0]}, ${this.walkLocation[1]} and ${this.walkLocation[2]}`;
+                        break;
+                    default:
+                        allLocations = `${this.walkLocation[0]}, ${this.walkLocation[1]} and ${this.walkLocation.length - 2} other places`;
+                }
+
+                console.log(`I have been for ${this.walks} walks today. We went to ${allLocations} and covered ${this.distance}km.`);
+            }
+
+            totalDistance() {
+                return `Total Distance: ${this.distance}km.`;
+            }
+        }
+
+        let labrador = new Dog("Rover", "Sydney");
+
+    </script>
+</body>
+</html>

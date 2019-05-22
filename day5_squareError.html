@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Finish off the code below to create a function that will take a number as an input, and will print out the result of multiplying that number by itself.
+        Throw an Error when the function is called
+        without arguments.
+        */
+
+        "use strict";
+
+        const square = (a) => {
+            // create new variable which equals exponent 2 of a i.e. a * a
+            let multiplied = Math.pow(a, 2);
+
+            try {
+                // check if argument was entered, no argument returns as undefined 
+                if (a === undefined) {
+                    throw new Error("Function square requires an argument!");
+                } 
+
+                console.log(multiplied);
+
+            } catch(error) {
+                console.log(error);
+            }
+            
+        }
+
+        square(10);
+        // 100
+
+        square();
+        // BEFORE: NaN
+        // AFTER: Error: Function square requires an argument!
+
+        square(1);
+        // 1
+
+        square("a");
+        // NaN
+    </script>
+</body>
+</html>
