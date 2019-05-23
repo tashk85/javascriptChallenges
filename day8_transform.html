@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Transform</title>
+</head>
+<body>
+    <script>
+        /*
+        transform(Collection, Function, accumulator)
+        
+        This function transforms collection to a new accumulator collection by mutating the accumulator object with each iteration.
+        If accumulator is not provided, a new object with the same [[Prototype]] will be used.
+        Iteratee functions may exit iteration early by explicitly returning false.
+        The callback function is invoked with three arguments: (accumulator, value, (index|key)).
+
+        let address = { state: "nsw", postcode: 2230, city: "sydney", fullAddress: function() {} };
+        let newAddress = transform(address, function(accumulator, value, key) {
+            if (typeof value !== "function") {
+                accumulator[key] = value;
+            }
+        }, {});
+
+        console.log(newAddress);
+        => { state: "nsw", postcode: 2230, city: "sydney" }
+
+        let numbers = [2,3,4];
+        let newNumbers = transform(numbers, function(accumulator, value, index) {
+            accumulator.push(value * value);
+            return n % 2 === 0;
+        }, []);
+
+        console.log(newNumbers);
+        => [4,9]
+        */
+
+        const transform = (collection, callback,accumulator=undefined) => {
+            if (accumulator === undefined) {
+                if (Array.isArray(collection)) {
+                        accumulator = [];
+                    } else  {
+                        accumulator = {};
+                    }
+            }
+           for (let i in collection) {
+               let answer = callback(accumulator,collection[i],i);
+                 if (!answer) {
+                     break;
+                 }
+           }
+           return accumulator;
+        }
+
+
+
+        let address = { state: "nsw", postcode: 2230, city: "sydney", fullAddress: function() {} };
+        let newAddress = transform(address, function(accumulator, value, key) {
+            if (typeof value !== "function") {
+                accumulator[key] = value;
+                return true;
+            }
+            return false;
+        }, {});
+
+        console.log(newAddress);
+
+        let numbers = [2,3,4];
+        let newNumbers = transform(numbers, function(accumulator, value, index) {
+            let n = value * value;
+            accumulator.push(n);
+            return n % 2 === 0;
+        }, []);
+
+        console.log(newNumbers);
+
+
+    </script>
+</body>
+</html>

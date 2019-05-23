@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Remove</title>
+</head>
+<body>
+    <script>
+        /*
+        remove(Array, Function)
+        
+        Removes all elements from array that callback function returns truthy for.
+        Returns an array of the remaining elements (mutates the original array).
+        The callback function is invoked with two arguments: (value, index).
+
+        let people = ["james", "hamish", "john", "garret"];
+        remove(people, function(value, index) {
+            return value[0] === "j";
+        });
+
+        console.log(people);
+        => [“hamish”, “garret"]
+        */
+
+        let people = ["james", "hamish", "john", "garret"];
+        function remove(array, callback) {
+            for (let i in array) {
+                let answer = callback(array[i],i);
+                if (answer) {
+                    array.splice(i,1);
+                }
+            }
+            console.log(array)
+        }
+
+        // remove(people,function(value,index) {
+        //     return value[0] === “j”;
+        // });
+
+        remove(people,function(value,index) {
+            return value[0] === "j";
+        });
+
+
+    </script>
+</body>
+</html>

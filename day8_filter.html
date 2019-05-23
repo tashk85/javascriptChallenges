@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Filter</title>
+</head>
+<body>
+    <script>
+        /*
+        filter(Array, Function)
+        
+        Iterates over elements from array, returning a new array of all elements that the callback function returns truthy for.
+        The callback function is invoked with two arguments: (value, index).
+
+        let numbers = [1,2,3,4,5,6];
+        let newNumbers = filter(numbers, function(value, index) {
+            return value % 2 === 0;
+        });
+
+        console.log(numbers);
+        => [1,2,3,4,5,6]
+
+        console.log(newNumbers)
+        => [2,4,6]
+        */
+
+        function filter(array, callback) {
+            let newArray = [];
+
+            for (let i in array) {
+                let answer = callback(array[i], i);
+                if (answer) {
+                    newArray.push(array[i]);
+                }
+            }
+
+            return newArray;
+        }
+
+        let numbers = [1,2,3,4,5,6];
+
+        let newNumbers = filter(numbers, function(value, index) {
+            return value % 2 === 0;
+        });
+
+        console.log(numbers);
+
+        console.log(newNumbers);
+
+    </script>
+</body>
+</html>
