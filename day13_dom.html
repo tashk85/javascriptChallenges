@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Morning Challenge</title>
+</head>
+<body>
+    <!-- Create a landing page that has a header, an image, some lorem ipsum in a paragraph, a button, a colour picker and an input box.
+    When someone clicks the button a new random image should take the place of the first one (modify the image=0) to be random number
+    When someone chooses a new colour the font colour of the paragraph text should change.
+    When someone types in the header the text should change. If the box is ever empty then it should revert back to the default text -->
+    
+    <h1>Welcome!</h1>
+    <div>
+        <img src="https://picsum.photos/600/400?image=0" />
+   </div>
+   <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin condimentum viverra ipsum eu eleifend. Donec tortor risus, auctor nec ultrices id, cursus vitae orci. Phasellus lacinia vulputate suscipit. In nec elit in justo pretium ultrices. Aliquam convallis maximus nisi. Nunc tempor erat a ultricies bibendum. Nam quis massa eget odio mollis consectetur non ut purus. Quisque consequat urna volutpat eros placerat pellentesque. Phasellus non nisi in nisi dignissim dignissim in eu dolor. Curabitur vulputate elit nec cursus ullamcorper. Nulla ac eleifend ante, at semper mauris. Quisque tincidunt mattis turpis, vel molestie ipsum pulvinar et. Aenean quis ex imperdiet nunc porta mollis sit amet in eros.
+   </p>
+
+    <!-- Add your controls under here -->
+    <div>
+        <input type="submit" value="Change Image" id="imageButton" />
+    </div>
+    <div>
+        <label for="colourPicker">Pick A Colour:</label>
+        <input type="color" value="#ff0000" id="colourPicker" />
+    </div>
+    <div>
+        <label for="heading">Change text:</label>
+        <input type="text" id="heading" required minlength="4" />
+    </div>
+
+    <script>
+        function randNumber() {
+           return Math.floor(Math.random() * 1080);
+       }
+       //Add your code under here
+       document.getElementById("imageButton").addEventListener("click", () => {
+            document.querySelector("img").src = `https://picsum.photos/600/400?image=${randNumber()}`;
+        });
+       
+        document.getElementById("colourPicker").addEventListener("input", watchColorPicker);
+
+        function watchColorPicker(event) {
+            document.querySelectorAll("p").forEach(function(p) {
+                p.style.color = event.target.value;
+            });
+        }
+
+        document.getElementById("heading").addEventListener("input", changeText);
+
+        function changeText(event) {
+            let newText = document.getElementById("heading").value;
+            document.querySelector("h1").innerHTML = newText;
+        }
+
+    </script>
+</body>
+</html>
